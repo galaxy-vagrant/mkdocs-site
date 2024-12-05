@@ -127,25 +127,33 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>git remote add origin https://github.com/galaxy-vagrant/mkdocs-site.git</p>
-<p>mkdocs build</p>
-<p>mkdocs gh-deploy --force</p>
-<p>mkdocs gh-deploy</p>
-<p>(base) rooter@rooter-Legion-Y9000P-IRX9:~/mkdocs-site$ git status
+<p><code>mkdocs serve</code></p>
+<p>在vscode中上传</p>
+<p><code>git remote add origin https://github.com/galaxy-vagrant/mkdocs-site.git</code></p>
+<p>添加所有更改到暂存区</p>
+<pre><code>`git add .提交更改，并附上提交信息`
+</code></pre>
+<p><code>git commit -m "提交信息：描述了本次提交的所有更改"</code></p>
+<p>推送到远程仓库的main分支（假设远程仓库名为origin）</p>
+<p><code>git push origin main</code></p>
+<p><code>mkdocs build   # site 内生成文件</code></p>
+<p><code>mkdocs gh-deploy</code></p>
+<p><code>mkdocs gh-deploy --force</code></p>
+<pre><code class="language-bash">(base) rooter@rooter-Legion-Y9000P-IRX9:~/mkdocs-site$ git status
 位于分支 main
 您的分支领先 'mkdocs-site/main' 共 2 个提交。
-  （使用 "git push" 来发布您的本地提交）</p>
-<p>未跟踪的文件:
-  （使用 "git add &lt;文件&gt;..." 以包含要提交的内容）
-    ".history/docs/\345\274\200\345\217\221\345\267\245\345\205\267/"
-    "docs/\345\274\200\345\217\221\345\267\245\345\205\267/mkdocs.md"</p>
-<p>提交为空，但是存在尚未跟踪的文件（使用 "git add" 建立跟踪）</p>
+  （使用 &quot;git push&quot; 来发布您的本地提交）未跟踪的文件:
+  （使用 &quot;git add &lt;文件&gt;...&quot; 以包含要提交的内容）
+    &quot;.history/docs/\345\274\200\345\217\221\345\267\245\345\205\267/&quot;
+    &quot;docs/\345\274\200\345\217\221\345\267\245\345\205\267/mkdocs.md&quot;提交为空，但是存在尚未跟踪的文件（使用 &quot;git add&quot; 建立跟踪）
+</code></pre>
 <p>git remote -v</p>
-<p>(base) rooter@rooter-Legion-Y9000P-IRX9:~/mkdocs-site$ git remote -v
+<pre><code>(base) rooter@rooter-Legion-Y9000P-IRX9:~/mkdocs-site$ git remote -v
 mkdocs-site https://github.com/galaxy-vagrant/mkdocs-site.git (fetch)
 mkdocs-site https://github.com/galaxy-vagrant/mkdocs-site.git (push)
 origin  https://github.com/galaxy-vagrant/mkdocs-site.git (fetch)
-origin  https://github.com/galaxy-vagrant/mkdocs-site.git (push)</p></div>
+origin  https://github.com/galaxy-vagrant/mkdocs-site.git (push)
+</code></pre></div>
             </div>
         </div>
 
