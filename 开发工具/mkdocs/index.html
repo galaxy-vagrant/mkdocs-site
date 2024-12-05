@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Readme - My Docs</title>
+        <title>Mkdocs - My Docs</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -56,15 +56,15 @@
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">开发工具</a>
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">开发工具</a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/mkdocs/" class="dropdown-item">Mkdocs</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Mkdocs</a>
 </li>
                                     
 <li>
-    <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/readme/" class="dropdown-item">Readme</a>
+    <a href="../readme/" class="dropdown-item">Readme</a>
 </li>
                                     
   <li class="dropdown-submenu">
@@ -72,18 +72,18 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/vscode/%E6%8F%92%E4%BB%B6/" class="dropdown-item">插件</a>
+    <a href="../vscode/%E6%8F%92%E4%BB%B6/" class="dropdown-item">插件</a>
 </li>
     </ul>
   </li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">最新发布</a>
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">最新发布</a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Readme</a>
+    <a href="../../%E6%9C%80%E6%96%B0%E5%8F%91%E5%B8%83/readme/" class="dropdown-item">Readme</a>
 </li>
                                 </ul>
                             </li>
@@ -96,12 +96,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../../%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/vscode/%E6%8F%92%E4%BB%B6/" class="nav-link">
+                                <a rel="prev" href="../../%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/202412/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
+                                <a rel="next" href="../readme/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -127,7 +127,25 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>这是跟踪最新发布的博客和文章的地方。</p></div>
+<p>git remote add origin https://github.com/galaxy-vagrant/mkdocs-site.git</p>
+<p>mkdocs build</p>
+<p>mkdocs gh-deploy --force</p>
+<p>mkdocs gh-deploy</p>
+<p>(base) rooter@rooter-Legion-Y9000P-IRX9:~/mkdocs-site$ git status
+位于分支 main
+您的分支领先 'mkdocs-site/main' 共 2 个提交。
+  （使用 "git push" 来发布您的本地提交）</p>
+<p>未跟踪的文件:
+  （使用 "git add &lt;文件&gt;..." 以包含要提交的内容）
+    ".history/docs/\345\274\200\345\217\221\345\267\245\345\205\267/"
+    "docs/\345\274\200\345\217\221\345\267\245\345\205\267/mkdocs.md"</p>
+<p>提交为空，但是存在尚未跟踪的文件（使用 "git add" 建立跟踪）</p>
+<p>git remote -v</p>
+<p>(base) rooter@rooter-Legion-Y9000P-IRX9:~/mkdocs-site$ git remote -v
+mkdocs-site https://github.com/galaxy-vagrant/mkdocs-site.git (fetch)
+mkdocs-site https://github.com/galaxy-vagrant/mkdocs-site.git (push)
+origin  https://github.com/galaxy-vagrant/mkdocs-site.git (fetch)
+origin  https://github.com/galaxy-vagrant/mkdocs-site.git (push)</p></div>
             </div>
         </div>
 
