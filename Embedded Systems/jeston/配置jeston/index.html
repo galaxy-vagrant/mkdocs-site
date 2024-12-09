@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>开机个性化 - My Docs</title>
+        <title>配置jeston - My Docs</title>
         <link href="../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../../css/brands.min.css" rel="stylesheet">
@@ -63,7 +63,7 @@
 </li>
             
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">开机个性化</a>
+    <a href="./" class="dropdown-item active" aria-current="page">配置jeston</a>
 </li>
     </ul>
   </li>
@@ -163,19 +163,73 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#opencvgst-cuda" class="nav-link">opencv编译支持gst cuda</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
 <h2 id="ip">设置静态IP</h2>
+<p>参考：</p>
+<p><a href="https://blog.csdn.net/tw_fae/article/details/139329138">Jetson设备（Ubuntu20.04/22.04）设置固定IP的方法</a>  设置一下</p>
+<p><a href="https://blog.csdn.net/m0_46169650/article/details/130130728?sharetype=blog&amp;shareid=130130728&amp;sharerefer=app&amp;sharesource=qq_43298381&amp;sharefrom=link">ubuntu网络中有线选项消失或ens33 ethernet 未托管解决方法</a>  使服从管理</p>
+<h3 id="_1">常用命令：</h3>
+<p>lshw -C network     # 命令查看网卡的状态  某个接口是否有连接</p>
+<p>nm-connection-editor # 修改有线网络IP配置</p>
+<p>nmcli con up "My-eth0"</p>
+<p>ip addr show eth0  # 显示Ubuntu系统上名为 eth0 的以太网接口的详细信息</p>
+<p>nmcli device show eth0</p>
+<p>sudo ip -s -s neigh flush all  # 删除缓存 尽量不用 用于清除ARP（地址解析协议）缓存表的Linux命令</p>
+<p>sudo ethtool eth0  #  ethtool 是一个用于Linux系统中查询和控制网络设备驱动程序设置的工具。sudo ethtool eth0 ：请求关于名为 eth0 的网络接口（在这个例子中是一个以太网接口）的详细信息。</p>
+<h3 id="_2">步骤：</h3>
 <p>如果想使用jeston的串口。使用tcp协议，会使用到IP地址，除非接入的端口可以自动分配地址，否则是没有固定的IP地址的，需要自己设置静态IP地址。</p>
 <p>step1:</p>
 <p>方法为点击右上角的设置，会弹出有线连接和无线连接设置，打开有线设置，在里面设置IPv4的地址，选择为手动，</p>
 <p>eg： IP地址可以设置为：192.168.0.6  子网掩码：255.255.255.0  网关：192.168.0.1</p>
 <p><img alt="1733490778177" src="../image/%E5%BC%80%E6%9C%BA%E4%B8%AA%E6%80%A7%E5%8C%96/1733490778177.png" /></p>
 <p>step2：</p>
-<p>注意：如果两个需要使用以太网线 需要两个在一个局域网内。</p></div>
+<p>命令行设置固定IP</p>
+<p><strong>➊安装netplan.io</strong></p>
+<pre><code>sudo apt install netplan.io
+</code></pre>
+<p><strong>➋修改</strong><a href="https://so.csdn.net/so/search?q=%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6&amp;spm=1001.2101.3001.7020">配置文件</a></p>
+<p><strong>这个配置文件一开始是没有的，直接新建就行了 显示新文件就可以</strong></p>
+<pre><code>sudo vi /etc/netplan/99_config.yaml
+</code></pre>
+<p><strong>添加以下内容：</strong></p>
+<pre><code>network:
+  version: 2
+  renderer: network
+  ethernets:
+    eth1:
+      addresses:
+        #(此处按照自身需求进行静态ip的设置)
+        - 192.168.0.22/24   
+      routes:
+        - to: default
+          #(填写IP的网段)
+          via: 192.168.0.1
+      nameservers:
+          search: [example.com, sales.example.com, dev.example.com]
+          addresses: [1.1.1.1, 8.8.8.8, 4.4.4.4]
+</code></pre>
+<p><strong>➌重启设备使设置生效</strong></p>
+<pre><code>sudo reboot
+</code></pre>
+<p><strong>其实管用的可能不是这里，而是使用nm-connection-editor # 修改有线网络IP配置如果可以直接打开就是上面那里</strong></p>
+<p><strong>设置的内容其实都一样  ，上面那个是一定是可以的，这个不知道， 但是都进行设置了， 这是针对jeston。</strong></p>
+<p><strong>对于ubuntux86直接右上角的有线设置就好了。</strong></p>
+<p>step3:</p>
+<p><strong>然后如果显示未托管的话，记得将sudo vi NetworkManager.conf  文件中【main】下面的managed=true设为true。</strong></p>
+<p>我的ubuntu系统没有设置这一步骤step2和step3，只是使用step1设置一样是可以用的。</p>
+<p>说明step1和step2应该之选择一个就可以了。</p>
+<p>注意：如果两个需要使用以太网线 需要两个在一个局域网内。</p>
+<h2 id="opencvgst-cuda">opencv编译支持gst cuda</h2>
+<p>暂定</p></div>
             </div>
         </div>
 
