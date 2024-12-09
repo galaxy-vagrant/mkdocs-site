@@ -83,6 +83,10 @@
                                 <ul class="dropdown-menu">
                                     
 <li>
+    <a href="../../../%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CUDA%E7%BC%96%E7%A8%8B%26GPU/" class="dropdown-item">CUDA编程&GPU</a>
+</li>
+                                    
+<li>
     <a href="../../../%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/docker/" class="dropdown-item">Docker</a>
 </li>
                                     
@@ -193,11 +197,11 @@
 <p><img alt="1733490778177" src="../image/%E5%BC%80%E6%9C%BA%E4%B8%AA%E6%80%A7%E5%8C%96/1733490778177.png" /></p>
 <p>step2：</p>
 <p>命令行设置固定IP</p>
-<p><strong>➊安装netplan.io</strong></p>
+<p>➊安装netplan.io</p>
 <pre><code>sudo apt install netplan.io
 </code></pre>
-<p><strong>➋修改</strong><a href="https://so.csdn.net/so/search?q=%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6&amp;spm=1001.2101.3001.7020">配置文件</a></p>
-<p><strong>这个配置文件一开始是没有的，直接新建就行了 显示新文件就可以</strong></p>
+<p>➋修改<a href="https://so.csdn.net/so/search?q=%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6&amp;spm=1001.2101.3001.7020">配置文件</a></p>
+<p>这个配置文件一开始是没有的，直接新建就行了 显示新文件就可以</p>
 <pre><code>sudo vi /etc/netplan/99_config.yaml
 </code></pre>
 <p><strong>添加以下内容：</strong></p>
@@ -217,14 +221,14 @@
           search: [example.com, sales.example.com, dev.example.com]
           addresses: [1.1.1.1, 8.8.8.8, 4.4.4.4]
 </code></pre>
-<p><strong>➌重启设备使设置生效</strong></p>
+<p>➌重启设备使设置生效</p>
 <pre><code>sudo reboot
 </code></pre>
-<p><strong>其实管用的可能不是这里，而是使用nm-connection-editor # 修改有线网络IP配置如果可以直接打开就是上面那里</strong></p>
-<p><strong>设置的内容其实都一样  ，上面那个是一定是可以的，这个不知道， 但是都进行设置了， 这是针对jeston。</strong></p>
-<p><strong>对于ubuntux86直接右上角的有线设置就好了。</strong></p>
+<p>其实管用的可能不是这里，而是使用nm-connection-editor # 修改有线网络IP配置如果可以直接打开就是上面那里</p>
+<p>设置的内容其实都一样  ，上面那个是一定是可以的，这个不知道， 但是都进行设置了， 这是针对jeston。</p>
+<p>对于ubuntux86直接右上角的有线设置就好了。</p>
 <p>step3:</p>
-<p><strong>然后如果显示未托管的话，记得将sudo vi NetworkManager.conf  文件中【main】下面的managed=true设为true。</strong></p>
+<p>然后如果显示未托管的话，记得将sudo vi NetworkManager.conf  文件中【main】下面的managed=true设为true。</p>
 <p>我的ubuntu系统没有设置这一步骤step2和step3，只是使用step1设置一样是可以用的。</p>
 <p>说明step1和step2应该之选择一个就可以了。</p>
 <p>注意：如果两个需要使用以太网线 需要两个在一个局域网内。</p>
